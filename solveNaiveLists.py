@@ -20,26 +20,38 @@ def main():
 
                 # If the station is not in the dictionary, add it
                 if station not in weatherStationStats:
-                    weatherStationStats[station] = {
-                        "min": temp,
-                        "max": temp,
-                        "sum": temp,
-                        "count": 1
-                    }
+                    weatherStationStats[station] = [
+                        temp,  # Min
+                        temp,  # Max
+                        temp,  # Sum
+                        1,  # Count
+                        0  # Average
+                    ]
                 # Otherwise, the station is in fact in the dictionary
                 else:
                     # Increment the count
-                    weatherStationStats[station]["count"] += 1
+                    weatherStationStats[station][3] += 1
                     # Update the minimum temperature
-                    weatherStationStats[station]["min"] = min(
-                        weatherStationStats[station]["min"], temp)
+                    weatherStationStats[station][0] = min(
+                        weatherStationStats[station][0], temp)
                     # Update the maximum temperature
-                    weatherStationStats[station]["max"] = max(
-                        weatherStationStats[station]["max"], temp)
+                    weatherStationStats[station][1] = max(
+                        weatherStationStats[station][1], temp)
                     # Update the sum of all temperatures
-                    weatherStationStats[station]["sum"] += temp
+                    weatherStationStats[station][2] += temp
 
                 bar()
+
+    # In order to print here, we need to transform the list into a dictionary
+    weatherStationStats = {
+        station: {
+            "min": weatherStationStats[station][0],
+            "max": weatherStationStats[station][1],
+            "sum": weatherStationStats[station][2],
+            "count": weatherStationStats[station][3]
+        }
+        for station in sortedStations
+    }
 
     # At this point, we just have to compute averages
     for station in weatherStationStats:
@@ -49,7 +61,7 @@ def main():
     sortedStations = sorted(weatherStationStats)
 
     # Simply call the util function to save the data to CSV
-    utils.saveDataToCSV(sortedStations, "out/weatherStatsNaive.csv")
+    utils.saveDataToCSV(sortedStations, "out/weatherStatsNaiveList.csv")
 
 
 if __name__ == "__main__":

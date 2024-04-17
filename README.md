@@ -41,6 +41,15 @@ generated data, so you can run them individually to generate a CSV file in the
 `out` folder. Each individual script generates a separate CSV file, for
 comparison's sake.
 
+# Results
+
+The following is a table of my result timings.
+
+| Filename             | Time | Notes                                                                   |
+| -------------------- | ---- | ----------------------------------------------------------------------- |
+| `solveNaive.py`      |      | This is the most obvious solution method.                               |
+| `solveNaiveLists.py` |      | Statically allocating lists is a micro-optimization for faster runtime. |
+
 # License TL;DR
 
 This project is distributed under the MIT license. This is a paraphrasing of a
