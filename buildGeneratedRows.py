@@ -31,14 +31,13 @@ def main():
     # Delete the weather data file if it exists
     try:
         os.remove("data/weatherData.csv")
-        print("Removed previous weather data file.")
+        print(f"{utils.YELLOW}NOTE: {
+              utils.RESET}Removed previous weather data file.")
     except FileNotFoundError:
         pass
 
     # Create a file to store the generated data
     with open("data/weatherData.csv", "w", encoding="utf-8") as f:
-        f.write("Station;Temperature;Date\n")
-
         # Iterate 100 million times
         oneHundredMn = 100_000_000
         with alive_bar(oneHundredMn) as bar:
@@ -56,7 +55,7 @@ def main():
 
                 bar()
 
-    print("Done!")
+    print(f"{utils.GREEN}Done!{utils.RESET}")
 
 
 if __name__ == "__main__":

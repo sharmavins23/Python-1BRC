@@ -24,7 +24,9 @@ functions as well as standardized the output to CSV for comparison.
 
 **Notably,** and due to testing the timing, I've opted to significantly reduce
 the problem size to a paltry 100 million data points. This reduces the time
-requirements for each iteration and allows me to test timings much faster.
+requirements for each iteration and allows me to test timings much faster. Also,
+the data file alone is 2.81 GB, which is plenty of information to get a stressed
+trial.
 
 ## Running
 
