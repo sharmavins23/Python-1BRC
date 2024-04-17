@@ -20,7 +20,24 @@ Cracow;12.6
 
 The program should save and return the minimum, mean, and maximal values per
 station, ordered alphabetically. For simplicity's sake, I've created generation
-functions as well as standardized the output to CSV for comparison's sake.
+functions as well as standardized the output to CSV for comparison.
+
+**Notably,** and due to testing the timing, I've opted to significantly reduce
+the problem size to a paltry 100 million data points. This reduces the time
+requirements for each iteration and allows me to test timings much faster.
+
+## Running
+
+The project is limited to standard libraries within Python 3.12, so that is the
+major requirement. The project also uses progress bars from `alive_progress`, so
+`pip install alive-progress` is also required.
+
+To generate the 1 billion rows, simply run `py buildGeneratedRows.py`.
+
+Each individual script contains a different attempt at constructing the
+generated data, so you can run them individually to generate a CSV file in the
+`out` folder. Each individual script generates a separate CSV file, for
+comparison's sake.
 
 # License TL;DR
 
