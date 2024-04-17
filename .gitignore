@@ -1,0 +1,5 @@
+.vscode
+__pycache__
+
+# Any files generated in /gen/
+gen/*
